@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: greetings
-        run: |
-          echo 'Hello from Ubuntu.'
+      - name: build
+        run: docker build -t cppcheck-alpine cppcheck
+      - name: test
+        run: docker run --rm -it cppcheck-alpine cppcheck --version
