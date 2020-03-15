@@ -7,6 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build
-        run: docker build -t cppcheck-alpine cppcheck
+        run: docker-compose --file cppcheck/docker-compose.test.yml build
       - name: test
-        run: docker run --rm -it cppcheck-alpine cppcheck --version
+        run: docker-compose --file cppcheck/docker-compose.test.yml run sut
