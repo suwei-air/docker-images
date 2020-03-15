@@ -6,6 +6,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - name: greetings
+      - name: build
         run: |
-          echo 'Hello from Windows.'
+          docker-compose --version
+          docker build -t vs2019 vs/vs2019
